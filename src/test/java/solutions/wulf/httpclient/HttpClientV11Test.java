@@ -16,7 +16,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class HttpClientTest {
+class HttpClientV11Test {
 
     private static String URI_EVENT_DISCOVERY = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=INVALID";
 
@@ -47,7 +47,7 @@ class HttpClientTest {
                 .build()
                 .sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::body)
-                .thenAccept(HttpClientTest::assertFaultMessage);
+                .thenAccept(HttpClientV11Test::assertFaultMessage);
     }
 
     private static void assertFaultMessage(String response)  {
